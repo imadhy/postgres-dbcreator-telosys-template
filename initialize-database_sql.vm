@@ -62,7 +62,9 @@ ALTER TABLE ONLY $uncapitalizedEntityName
 -- Type: FK CONSTRAINT;
 --
 #end
-
+## Foreign Keys
+## Foreign key behaviour on delete can be modified depend on the needs :
+## ON DELETE RESTRICT, ON DELETE NO ACTION, ON DELETE CASCADE, ON DELETE SET NULL (default)
 ALTER TABLE ONLY $uncapitalizedEntityName
     ADD CONSTRAINT ${uncapitalizedEntityName}_${linkAttribute.originAttribute.name}_fkey FOREIGN KEY (${linkAttribute.originAttribute.name}) REFERENCES ${link.fieldName}(${linkAttribute.targetAttribute.name}) ON DELETE SET NULL;
 #end
